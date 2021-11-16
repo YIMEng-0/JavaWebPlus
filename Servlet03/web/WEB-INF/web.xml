@@ -3,4 +3,32 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
+
+    <servlet>
+        <servlet-name>ServletConfig1</servlet-name>
+        <servlet-class>com.luobin.javaweb.servlet.ConfigTestServlet01</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ServletConfig1</servlet-name>
+        <url-pattern>/ServletConfig01</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>ServletConfig02</servlet-name>
+        <servlet-class>com.luobin.javaweb.servlet.ConfigTestServlet02</servlet-class>
+        <!-- 在这个位置可以配置 Servlet 对象的初始化信息 -->
+        <init-param>
+            <param-name>username</param-name>
+            <param-value>root</param-value>
+        </init-param>
+        <init-param>
+            <param-name>password</param-name>
+            <param-value>123456</param-value>
+        </init-param>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ServletConfig02</servlet-name>
+        <url-pattern>/ServletConfig02</url-pattern>
+    </servlet-mapping>
 </web-app>
