@@ -17,16 +17,42 @@ import java.io.IOException;
  *  GenericServlet 本身就是一个适配器的角色；
  */
 public abstract class GenericServlet implements Servlet {
+    // 定义成员变量
+    private ServletConfig config;
+
+    /**
+     * 在下面的 init 方法执行的前面，会创建出来 ServletConfig 对象，然后作为参数传递进来
+     *      init 方法里面的servletConfig对象是 Tomcat 自动创建成功的
+     *      此时的servletConfig 对象目前在 init 方法里面属于一个局部变量
+     *      ServletConfig对象以后需要在service 方法里面也会使用，怎么才能保证 servletConfig对象在里面可以使用呢
+     *
+     * @param config
+     * @throws ServletException
+     */
     @Override
-    public void init(ServletConfig servletConfig) throws ServletException {
+    public final void init(ServletConfig config) throws ServletException {
+        System.out.println("servletConfig 对象：" + config);
+        this.config = config;
+        this.init();
+    }
+
+    /**
+     * 上面的 init 方法写成了 final
+     * 在这个位置，重新定义一个 init 方法，让继承的子类重写这个方法即可;
+     *
+     * 这个没有带参数的 init 方法是提供给 子类进行重写的；
+     *
+     * 运行机制是，先在自己的类中寻找有没有 init 方法，没有的话就去执行父类的init 方法，自己有的话，执行自己的 init
+     * 方法即可
+     */
+    public void init() {
 
     }
 
     @Override
     public ServletConfig getServletConfig() {
-        return null;
+        return config;
     }
-
 
     /**
      * 下面的方法使用起来最频繁，将其设置为抽象方法，让继承它的子类进行实现即可
