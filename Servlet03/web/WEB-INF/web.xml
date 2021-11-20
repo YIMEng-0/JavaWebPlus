@@ -26,6 +26,11 @@
             <param-name>password</param-name>
             <param-value>123456</param-value>
         </init-param>
+        <init-param>
+            <param-name>key</param-name>
+            <param-value>value</param-value>
+        </init-param>
+
     </servlet>
     <servlet-mapping>
         <servlet-name>ServletConfig02</servlet-name>

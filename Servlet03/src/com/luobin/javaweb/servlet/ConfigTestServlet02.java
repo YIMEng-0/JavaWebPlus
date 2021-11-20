@@ -35,17 +35,41 @@ public class ConfigTestServlet02 extends GenericServlet {
         out.println(config.getServletName());
 
         // 通过使用ServletConfig 对象的两个方法，可以获取到 web.xml 文件中的初始化参数配置信息；
+        // 初始化参数的名字的获取
+        //
         Enumeration<String> initParameterNames = config.getInitParameterNames();
         // 遍历集合
         out.println("<br>");
         while (initParameterNames.hasMoreElements()) {
             String parameterName = initParameterNames.nextElement();
             out.println("<br>");
-            out.println( "配置的参数的名字为： " + parameterName);
+            out.println("parameterName = " + parameterName);
         }
 
         out.println("<br>");
         String username = config.getInitParameter("username");
-        out.println("init 配置的参数的值为 ：" + username);
+        out.println("username = " + username);
+
+        out.println("<br>");
+        String password = config.getInitParameter("password");
+        out.println("password = " + username);
+
+        out.println("<br>");
+        String servletName = config.getServletName();
+        out.println("servletName = " + servletName);
+
+        // 使用this 调用了 ServletConfig 里面的方法也是可以的，因为Generic 这个方法实现了ServletConfig 这个接口，
+        // 父类是具有这个方法的，所以子类可以直接调用即可，不需要中间的对象的创建了
+        this.getInitParameterNames();
+        this.getInitParameter("username");
+
+        // 创建 ServletContext 对象
+        // 使用了ServletConfig 对象进行获取ServletContext 对象
+        out.println("<br>");
+        ServletContext application = config.getServletContext();
+        out.println("ServletContext Object is + " + application);
+
+        ServletContext application1 = this.getServletContext();
+        out.println("<br>" + " 使用了 继承了GenericServlet 的 Servlet 对象的this 创建的 ServletContext 对象 " + application1);
     }
 }
