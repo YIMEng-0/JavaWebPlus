@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>http协议</title>
+    </head>
+    <body>
+<!--        浏览器上面的请求路径是需要带上应用的根路径的-->
+        <h1>请求</h1>
+<!--        在 action 中添加的是项目的根路径，也就是 webapp 的部署的根路径-->
+<!--        "submit"类型的<input>元素呈现为提交按钮 - 单击一个将尝试提交表单到服务器。-->
+        <form action="/Servlet05/getServlet" method="get">
+            username<input type="text" name="username"><br>
+            password<input type="text" name="password"><br>
+            <input type="submit" value="login">
+        </form>
+
+        <h1>post</h1>
+        <form action="/Servlet05/postServlet" method="post">
+            username<input type="text" name="username"><br>
+            password<input type="text" name="password"><br>
+            <input type="submit" value="login">
+        </form>
+    </body>
+</html>

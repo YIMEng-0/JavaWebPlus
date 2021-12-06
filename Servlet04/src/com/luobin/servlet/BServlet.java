@@ -1,6 +1,7 @@
 package com.luobin.servlet;
 
 import javax.servlet.*;
+import javax.servlet.http.HttpServlet;
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -18,5 +19,7 @@ public class BServlet extends GenericServlet {
 
         ServletContext application = this.getServletContext();
         out.println("ServletContext 的对象为：" + application);
+      
     }
+
 }

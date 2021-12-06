@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+    
+    <servlet>
+        <servlet-name>getService</servlet-name>
+        <servlet-class>com.luobin.servlet.GetServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>getService</servlet-name>
+        <url-pattern>/getServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>postService</servlet-name>
+        <servlet-class>com.luobin.servlet.PostServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>postService</servlet-name>
+        <url-pattern>/postServlet</url-pattern>
+    </servlet-mapping>
+<!--    xml 运行的位置是，通过了<mapping>标签配置的路径找到 servlet-name 然后找到上面的<servlet> 的servlet-name 然后找到<servlet>标签下面写的具体的代码-->
+</web-app>

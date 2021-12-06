@@ -6,7 +6,11 @@
       <module fileurl="file://$PROJECT_DIR$/Servlet02/Servlet02.iml" filepath="$PROJECT_DIR$/Servlet02/Servlet02.iml" />
       <module fileurl="file://$PROJECT_DIR$/Servlet03/Servlet03.iml" filepath="$PROJECT_DIR$/Servlet03/Servlet03.iml" />
       <module fileurl="file://$PROJECT_DIR$/Servlet04/Servlet04.iml" filepath="$PROJECT_DIR$/Servlet04/Servlet04.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Servlet05/Servlet05.iml" filepath="$PROJECT_DIR$/Servlet05/Servlet05.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Servlet06/Servlet06.iml" filepath="$PROJECT_DIR$/Servlet06/Servlet06.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Servlet07/Servlet07.iml" filepath="$PROJECT_DIR$/Servlet07/Servlet07.iml" />
       <module fileurl="file://$PROJECT_DIR$/ServletGISHomework/ServletGISHomework.iml" filepath="$PROJECT_DIR$/ServletGISHomework/ServletGISHomework.iml" />
+      <module fileurl="file://$PROJECT_DIR$/template/template.iml" filepath="$PROJECT_DIR$/template/template.iml" />
     </modules>
   </component>
 </project>
