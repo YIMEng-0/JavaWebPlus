@@ -4,6 +4,7 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
 
+<!--    查看部门列表-->
     <servlet>
         <servlet-name>listDep</servlet-name>
         <servlet-class>com.luobin.oa.web.action.DeptListServlet</servlet-class>
@@ -14,6 +15,7 @@
         <url-pattern>/dept/list</url-pattern>
     </servlet-mapping>
 
+<!--    查看部门详情信息-->
     <servlet>
         <servlet-name>detail</servlet-name>
         <servlet-class>com.luobin.oa.web.action.DeptDetailServlet</servlet-class>
@@ -21,5 +23,25 @@
     <servlet-mapping>
         <servlet-name>detail</servlet-name>
         <url-pattern>/dept/detail</url-pattern>
+    </servlet-mapping>
+
+<!--    删除部门-->
+    <servlet>
+        <servlet-name>delect</servlet-name>
+        <servlet-class>com.luobin.oa.web.action.DeptDelectServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>delect</servlet-name>
+        <url-pattern>/dept/delete</url-pattern>
+    </servlet-mapping>
+
+<!--    保存部门-->
+    <servlet>
+        <servlet-name>save</servlet-name>
+        <servlet-class>com.luobin.oa.web.action.DeptSaveServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>save</servlet-name>
+        <url-pattern>/dept/save</url-pattern>
     </servlet-mapping>
 </web-app>

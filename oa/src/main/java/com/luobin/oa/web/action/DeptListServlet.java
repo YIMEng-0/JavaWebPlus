@@ -32,6 +32,17 @@ public class DeptListServlet extends HttpServlet {
         out.print("        <meta charset='utf-8'>");
         out.print("        <title></title>");
         out.print("    </head>");
+
+        // 关于Javascript 脚本里面的东西，在Java里面是不识别的，但是在浏览器上面是可以识别的
+        out.print("<script type='text/javascript'>");
+        out.print("    function del(dno) {");
+        out.print("        ");
+        out.print("        if (window.confirm('确定删除？')) {");
+        out.print("            document.location.href = '/oa/dept/delete?deptno=' + dno;");
+        out.print("        }");
+        out.print("    }");
+        out.print("</script>");
+
         out.print("    <body>");
         out.print("        <h1 align='center'>部门列表</h1>");
         out.print("        <hr>");
@@ -42,7 +53,6 @@ public class DeptListServlet extends HttpServlet {
         out.print("                <th>部门名称</th>");
         out.print("                <th>操作</th>");
         out.print("            </tr>");
-        out.print("                ");
 
         // 在这个方法中，写 doGet 方法，可以使得查询所有的部门，并且在前端动态的显示执行的结果
         Connection conn = null;
@@ -71,7 +81,7 @@ public class DeptListServlet extends HttpServlet {
                 out.print("                <td>" + deptno + "</td>");
                 out.print("                <td>" + dname + "</td>");
                 out.print("                <td>");
-                out.print("                    <a href=''>删除</a>");
+                out.print("                    <a href='javascript:void(0)' onclick='del("+deptno+")'>删除</a>");
                 out.print("                    <a href='edit.html'>修改</a>");
                 out.print("                    <a href='" + contextPath + "/dept/detail?deptno=" + deptno + "'>详情</a>");
                 out.print("                    ");
@@ -88,10 +98,15 @@ public class DeptListServlet extends HttpServlet {
         /**
          * 下面的代码是不需要修改的
          */
+
         out.print("        </table>");
-        out.print("        <a href='add.html'>增加部门</a>");
-        out.print("        <a href='index.html'>回到主页</a>");
+        out.print("        <a href='"+contextPath+"/add.html'>增加</a>");
+        System.out.println(contextPath);
         out.print("    </body>");
+
+        System.out.println("执行到了下面");
+
         out.print("</html>");
+
     }
 }

@@ -1,36 +1,52 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset='utf-8'>
-		<title></title>
-	</head>
-	<body>
-		<h1 align='center'>部门列表</h1>
-		<hr>
-		<table border='1' align='center' width='50%'>
-			<tr>
-				<th>序号</th>
-				<th>部门编号</th>
-				<th>部门名称</th>
-				<th>操作</th>
-			</tr>
-<!--			上面的操作是固定的-->
-<!--			下面的内容是动态的-->
-			<tr>
-				<td>1</td>
-				<td>10</td>
-				<td>销售部</td>
-				<td>
-					<a href=''>删除</a>
-					<a href='edit.html'>修改</a>
-					<a href='detail.html'>详情</a>
-					
-				</td>
-			</tr>
-			
-<!--下面的界面是固定不动的-->
-		</table>
-		<a href='add.html'>增加部门</a>
-		<a href='index.html'>回到主页</a>
-	</body>
+    <head>
+        <meta charset='utf-8'>
+        <title></title>
+    </head>
+    <body>
+        <h1 align='center'>部门列表</h1>
+        <hr>
+        <table border='1' align='center' width='50%'>
+            <tr>
+                <th>序号</th>
+                <th>部门编号</th>
+                <th>部门名称</th>
+                <th>操作</th>
+            </tr>
+            <!--			上面的操作是固定的-->
+            <!--			下面的内容是动态的-->
+            <tr>
+                <td>1</td>
+                <td>10</td>
+                <td>销售部</td>
+                <td>
+                    <!--javascript:void(0) 表示：仍然保持超链接的样子，点击了超链接之后，不进行页面的跳转-->
+                    <!--只是希望用户在点击的时候，执行一段代码就行，不进行页面的跳转操作，加上下面的这一行代码-->
+                    <!--onclick 表示的回调函数函数的名字定义为 del() 函数进行相应-->
+                    <a href='javascript:void(0)' onclick='del()'>删除</a>
+                    <a href='edit.html'>修改</a>
+                    <a href='detail.html'>详情</a>
+
+                </td>
+            </tr>
+
+            <!--下面的界面是固定不动的-->
+        </table>
+        <a href='add.html'>增加部门</a>
+        <a href='index.html'>回到主页</a>
+    </body>
+    <script type='text/javascript'>
+        function del(dno) {
+            var ok = window.confirm('确定删除？') // 条件里面的是确定或者取消，返回的是一个布尔值
+            if (ok) {
+                // 用户点击了确定，这个时候需要发送请求进行相关的操作
+                // js 代码如何发送请求到服务器？
+                // document.location.href = '请求路径'
+                // window.location = '请求路径'
+                // 前端发送的请求路径是需要带着项目名字的
+                document.location.href = '/oa/dept/delete?deptno=' + dno;
+            }
+        }
+    </script>
 </html>

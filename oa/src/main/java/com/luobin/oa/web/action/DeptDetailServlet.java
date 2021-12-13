@@ -34,6 +34,7 @@ public class DeptDetailServlet extends HttpServlet {
         out.print("        <hr >");
 
         String deptno = request.getParameter("deptno");
+        System.out.println("设置了一个断点");
 
         // 连接数据库，根据部门编号获取部门的信息
         Connection conn = null;
