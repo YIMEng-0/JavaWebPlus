@@ -9,7 +9,9 @@
       <module fileurl="file://$PROJECT_DIR$/Servlet05/Servlet05.iml" filepath="$PROJECT_DIR$/Servlet05/Servlet05.iml" />
       <module fileurl="file://$PROJECT_DIR$/Servlet06/Servlet06.iml" filepath="$PROJECT_DIR$/Servlet06/Servlet06.iml" />
       <module fileurl="file://$PROJECT_DIR$/Servlet07/Servlet07.iml" filepath="$PROJECT_DIR$/Servlet07/Servlet07.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Servlet08/Servlet08.iml" filepath="$PROJECT_DIR$/Servlet08/Servlet08.iml" />
       <module fileurl="file://$PROJECT_DIR$/ServletGISHomework/ServletGISHomework.iml" filepath="$PROJECT_DIR$/ServletGISHomework/ServletGISHomework.iml" />
+      <module fileurl="file://$PROJECT_DIR$/oa/oa.iml" filepath="$PROJECT_DIR$/oa/oa.iml" />
       <module fileurl="file://$PROJECT_DIR$/template/template.iml" filepath="$PROJECT_DIR$/template/template.iml" />
     </modules>
   </component>
