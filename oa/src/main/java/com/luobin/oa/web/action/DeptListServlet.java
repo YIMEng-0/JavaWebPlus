@@ -38,6 +38,9 @@ public class DeptListServlet extends HttpServlet {
         out.print("    function del(dno) {");
         out.print("        ");
         out.print("        if (window.confirm('确定删除？')) {");
+
+        // 下面的链接中，因为是前端发送请求到后端进行处理，所以这个地方是有项目名称的
+        // 发送的时候使用了 ?key=value 的形式，是为了符合 http 的规范，将数据进行发送
         out.print("            document.location.href = '/oa/dept/delete?deptno=' + dno;");
         out.print("        }");
         out.print("    }");
@@ -62,13 +65,15 @@ public class DeptListServlet extends HttpServlet {
         try {
             // 获取连接
             conn = DBUtil.getConnection();
-            // 获取预编译的数据库操作对象
+
             String sql = "select deptno,dname,loc from dept";
-            ps = conn.prepareStatement(sql);
-            // 执行 sql 语句
+            ps = conn.prepareStatement(sql); // 获取预编译的数据库操作对象
+            // 执行 查询 sql 语句
             rs = ps.executeQuery();
 
+            // 表示动态的进行序号展示
             int i = 0;
+
             // 处理查询结果集合
             while (rs.next()) {
                 String deptno = rs.getString("deptno");
@@ -81,8 +86,11 @@ public class DeptListServlet extends HttpServlet {
                 out.print("                <td>" + deptno + "</td>");
                 out.print("                <td>" + dname + "</td>");
                 out.print("                <td>");
-                out.print("                    <a href='javascript:void(0)' onclick='del("+deptno+")'>删除</a>");
+                out.print("                    <a href='javascript:void(0)' onclick='del(" + deptno + ")'>删除</a>");
                 out.print("                    <a href='edit.html'>修改</a>");
+
+                // 前端进行请求的发送，在这里使用了项目的绝对路径，并且符合了 http 的协议，在前端把需要发送的数据放在了请求的头部
+                // 把数据放在了头部之后，在后端可以进行数据的获取，使用 request.getParameter() 获得前端的参数，进行后面的相关处理
                 out.print("                    <a href='" + contextPath + "/dept/detail?deptno=" + deptno + "'>详情</a>");
                 out.print("                    ");
                 out.print("                </td>");
@@ -100,13 +108,18 @@ public class DeptListServlet extends HttpServlet {
          */
 
         out.print("        </table>");
-        out.print("        <a href='"+contextPath+"/add.html'>增加</a>");
+        out.print("        <a href='" + contextPath + "/add.html'>增加</a>");
         System.out.println(contextPath);
         out.print("    </body>");
 
         System.out.println("执行到了下面");
 
         out.print("</html>");
+    }
 
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        // 对于 doGet 方法的调用
+        doGet(request, response);
     }
 }

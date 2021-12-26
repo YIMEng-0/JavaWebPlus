@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/JavaWEB学习资料/JavaWEB学习资料.iml" filepath="$PROJECT_DIR$/JavaWEB学习资料/JavaWEB学习资料.iml" />
       <module fileurl="file://$PROJECT_DIR$/Servlet01/Servlet01.iml" filepath="$PROJECT_DIR$/Servlet01/Servlet01.iml" />
       <module fileurl="file://$PROJECT_DIR$/Servlet02/Servlet02.iml" filepath="$PROJECT_DIR$/Servlet02/Servlet02.iml" />
       <module fileurl="file://$PROJECT_DIR$/Servlet03/Servlet03.iml" filepath="$PROJECT_DIR$/Servlet03/Servlet03.iml" />

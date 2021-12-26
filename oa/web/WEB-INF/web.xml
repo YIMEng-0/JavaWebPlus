@@ -4,14 +4,14 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
 
-<!--    查看部门列表-->
+<!--    部门列表-->
     <servlet>
         <servlet-name>listDep</servlet-name>
         <servlet-class>com.luobin.oa.web.action.DeptListServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>listDep</servlet-name>
-<!--        项目里面的路径是需要加上 "/" 的，但是不需要加上项目名字的-->
+<!--        项目里面的路径是需要加上 "/" 的，但是不需要加上项目名字的，需要有一个斜杠存在，进行页面的绑定-->
         <url-pattern>/dept/list</url-pattern>
     </servlet-mapping>
 

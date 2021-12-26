@@ -57,8 +57,10 @@ public class DeptDelectServlet extends HttpServlet {
         if (count == 1) {
             // 仍然跳转到部门列表的页面
             // 部门的页面显示需要调用另外一个 Servlet 程序 怎么处理？转发 从一个 Servlet 转发到另外一个 Servlet
+            // 进行页面的跳转，这里在前端跳转到了动态页面，跳转的位置就是在 web.xml 里面注册好的列表页面
             request.getRequestDispatcher("/dept/list").forward(request, response);
         } else {
+            // 删除失败，跳转到 相关的错误 html 页面中
             request.getRequestDispatcher("/error.html").forward(request, response);
         }
     }
