@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="mysql-connector-java-5.1.23-bin5">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/JavaWEB学习资料/代码/prj-servlet-17/WebRoot/WEB-INF/lib/mysql-connector-java-5.1.23-bin.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
