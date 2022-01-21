@@ -1,4 +1,6 @@
-package com.luobin.oa.web.action; /**
+package com.luobin.oa.web.action;
+
+/**
  * @author Doraemon
  * @date 2021/12/13 9:36 下午
  * @version 1.0
@@ -39,7 +41,6 @@ public class DeptSaveServlet extends HttpServlet {
             ps.setString(3, loc);
 
             count = ps.executeUpdate();
-
 
         } catch (SQLException e) {
             e.printStackTrace();
