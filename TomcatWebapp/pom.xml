@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.example</groupId>
+    <artifactId>TomcatWebapp</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <!--
+    package 打包方式
+      1、使用 jar 包的打包方式 默认值
+      2、使用 war 包的打包方式 需要自己配置
+-->
+    <packaging>war</packaging>
+
+    <!--    导入 Servlet 的依赖坐标-->
+    <dependencies>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>4.0.1</version>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <!-- Tomcat 插件 -->
+            <!-- 这个插件是为了 打包成为 war 的时候不报错-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>3.3.1</version>
+
+                <!-- 这个是为了打包成为 war 包时候不报错，配置 web.xml 文件的位置-->
+                <configuration>
+                    <!-- 直接拷贝的 contents 目录 配置到这个地方-->
+                    <webXml>src/main/webapp/WEB-INF/web.xml</webXml>
+                </configuration>
+            </plugin>
+
+            <!-- 这个插件是为了配置 Tomcat 在 maven 中直接右键启动 在 maven 中配置的 tomcat -->
+            <plugin>
+                <groupId>org.apache.tomcat.maven</groupId>
+                <artifactId>tomcat7-maven-plugin</artifactId>
+                <version>2.2</version>
+                <configuration>
+                    <port>80</port>
+                    <!--配置的项目启动的时候，项目的根目录-->
+                    <path>/web-demo</path>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

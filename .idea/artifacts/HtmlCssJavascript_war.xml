@@ -1,0 +1,16 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="HtmlCssJavascript:war">
+    <output-path>$PROJECT_DIR$/HtmlCssJavascript/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <exploded>false</exploded>
+        <module>HtmlCssJavascript</module>
+        <packaging>war</packaging>
+        <unpackNestedArchives>false</unpackNestedArchives>
+      </options>
+    </properties>
+    <root id="archive" name="HtmlCssJavascript-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="HtmlCssJavascript:war exploded" />
+    </root>
+  </artifact>
+</component>

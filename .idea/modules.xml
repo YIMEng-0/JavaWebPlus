@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/HtmlCssJavascript/HtmlCssJavascript.iml" filepath="$PROJECT_DIR$/HtmlCssJavascript/HtmlCssJavascript.iml" />
       <module fileurl="file://$PROJECT_DIR$/JavaWEB学习资料/JavaWEB学习资料.iml" filepath="$PROJECT_DIR$/JavaWEB学习资料/JavaWEB学习资料.iml" />
       <module fileurl="file://$PROJECT_DIR$/Servlet01/Servlet01.iml" filepath="$PROJECT_DIR$/Servlet01/Servlet01.iml" />
       <module fileurl="file://$PROJECT_DIR$/Servlet02/Servlet02.iml" filepath="$PROJECT_DIR$/Servlet02/Servlet02.iml" />
@@ -13,6 +14,9 @@
       <module fileurl="file://$PROJECT_DIR$/Servlet08/Servlet08.iml" filepath="$PROJECT_DIR$/Servlet08/Servlet08.iml" />
       <module fileurl="file://$PROJECT_DIR$/ServletGISHomework/ServletGISHomework.iml" filepath="$PROJECT_DIR$/ServletGISHomework/ServletGISHomework.iml" />
       <module fileurl="file://$PROJECT_DIR$/ShangGuiGu01/ShangGuiGu01.iml" filepath="$PROJECT_DIR$/ShangGuiGu01/ShangGuiGu01.iml" />
+      <module fileurl="file://$PROJECT_DIR$/TomcatTest/TomcatTest.iml" filepath="$PROJECT_DIR$/TomcatTest/TomcatTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/TomcatWebapp/TomcatWebapp.iml" filepath="$PROJECT_DIR$/TomcatWebapp/TomcatWebapp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mybatis-demo/mybatis-demo.iml" filepath="$PROJECT_DIR$/mybatis-demo/mybatis-demo.iml" />
       <module fileurl="file://$PROJECT_DIR$/oa/oa.iml" filepath="$PROJECT_DIR$/oa/oa.iml" />
       <module fileurl="file://$PROJECT_DIR$/template/template.iml" filepath="$PROJECT_DIR$/template/template.iml" />
     </modules>

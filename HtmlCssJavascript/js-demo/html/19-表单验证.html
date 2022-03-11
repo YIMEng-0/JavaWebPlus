@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>欢迎注册</title>
+        <link href="../css/register.css" rel="stylesheet">
+    </head>
+    <body>
+
+        <div class="form-div">
+            <div class="reg-content">
+                <h1>欢迎注册</h1>
+                <span>已有帐号？</span> <a href="#">登录</a>
+            </div>
+            <form id="reg-form" action="#" method="get">
+
+                <table>
+
+                    <tr>
+                        <td>用户名</td>
+                        <td class="inputs">
+                            <input name="username" type="text" id="username">
+                            <br>
+                            <span id="username_err" class="err_msg" style="display: none">用户名不太受欢迎</span>
+                        </td>
+
+                    </tr>
+
+                    <tr>
+                        <td>密码</td>
+                        <td class="inputs">
+                            <input name="password" type="password" id="password">
+                            <br>
+                            <span id="password_err" class="err_msg" style="display: none">密码格式有误</span>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>手机号</td>
+                        <td class="inputs"><input name="tel" type="text" id="tel">
+                            <br>
+                            <span id="tel_err" class="err_msg" style="display: none">手机号格式有误</span>
+                        </td>
+                    </tr>
+
+                </table>
+
+                <div class="buttons">
+                    <input value="注 册" type="submit" id="reg_btn">
+                </div>
+                <br class="clear">
+            </form>
+
+        </div>
+        <!--进行表单验证 验证用户输入的内容是不是合法的-->
+        <script>
+            // 1 验证用户名是不是符合规则
+            // 1.1 获取用户名的输入框
+            var usernameInput = document.getElementById("username");
+
+            // 1.2 绑定失去焦点事件
+            usernameInput.onblur = checkUsername;
+
+            function checkUsername() {
+                // 1.3 获取用户输入的用户名
+                var username = usernameInput.value.trim();
+                var flag = username.length >= 6 && username.length <= 12;
+
+                // 1.4 判断输入的用户名自是不是符合规则 长度 6~12
+                if (flag) {
+                    // 符合规则
+                    // 成功的话，这个属性就是修改为 none 不成功的话属性修改为 ''
+                    document.getElementById("username_err").style.display = 'none';
+                } else {
+                    // 不符合规则 需要处理 显示提示信息即可
+                    document.getElementById("username_err").style.display = '';
+                }
+
+                return flag;
+            }
+
+            // 1 验证密码是不是符合规则
+            // 1.1 获取密码的输入框
+            var passwordInput = document.getElementById("password");
+
+            // 1.2 绑定失去焦点事件
+            passwordInput.onblur = checkPassword;
+
+            function checkPassword() {
+                // 1.3 获取用户输入的密码
+                var password = passwordInput.value.trim();
+
+                var flag = password.length >= 6 && password.length <= 12;
+                // 1.4 判断输入的密码自是不是符合规则 长度 6~12
+                if (flag) {
+                    // 符合规则
+                    // 成功的话，这个属性就是修改为 none 不成功的话属性修改为 ''
+                    document.getElementById("password_err").style.display = 'none';
+                } else {
+                    // 不符合规则 需要处理 显示提示信息即可
+                    document.getElementById("password_err").style.display = '';
+                }
+
+                return flag;
+            }
+
+            // 1 验证手机号是不是符合规则
+            // 1.1 获取手机号的输入框
+            var telInput = document.getElementById("tel");
+
+            // 1.2 绑定失去焦点事件
+            telInput.onblur = checkTel;
+
+            function checkTel() {
+                // 1.3 获取用户输入的手机号
+                var tel = telInput.value.trim();
+
+                // 1.4 判断输入的手机号自是不是符合规则 长度 6~12
+
+                var flag = tel.length == 11;
+                if (flag) {
+                    // 符合规则
+                    // 成功的话，这个属性就是修改为 none 不成功的话属性修改为 ''
+                    document.getElementById("tel_err").style.display = 'none';
+                } else {
+                    // 不符合规则 需要处理 显示提示信息即可
+                    document.getElementById("tel_err").style.display = '';
+                }
+
+                return flag;
+            }
+
+            // 当三个条件有一个条件是不满足的，那么就阻止提交
+            // 1 获取表单对象
+            var regForm = document.getElementById("reg-form")
+
+            // 2 绑定 onsubmit 事件 返回 false 就是可以阻止的
+            regForm.onsubmit = function () {
+                // 判断表单项中的三个表单都是需要符合要求的，存在一个不符合，就需要返回 false
+
+                if (checkUsername() && checkPassword() && checkTel()) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+        </script>
+
+    </body>
+</html>

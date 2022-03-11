@@ -6,10 +6,21 @@
     <option name="priority" value="Medium" />
     <option name="excludeFilter" value="" />
   </component>
+  <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$/HtmlCssJavascript" />
+    <file type="web" url="file://$PROJECT_DIR$/TomcatTest" />
+    <file type="web" url="file://$PROJECT_DIR$/TomcatWebapp" />
+  </component>
   <component name="MavenProjectsManager">
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/oa/pom.xml" />
+        <option value="$PROJECT_DIR$/Servlet08/testMaven/pom.xml" />
+        <option value="$PROJECT_DIR$/mybatis-demo/pom.xml" />
+        <option value="$PROJECT_DIR$/JavaWEB学习资料/HtmlCssJavascript/pom.xml" />
+        <option value="$PROJECT_DIR$/HtmlCssJavascript/pom.xml" />
+        <option value="$PROJECT_DIR$/TomcatTest/pom.xml" />
+        <option value="$PROJECT_DIR$/TomcatWebapp/pom.xml" />
       </list>
     </option>
   </component>
