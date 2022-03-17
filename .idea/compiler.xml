@@ -6,15 +6,18 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="TomcatTest" />
-        <module name="mybatis-demo" />
-        <module name="oa" />
-        <module name="HtmlCssJavascript" />
-        <module name="TomcatWebapp" />
+        <module name="filter-demo" />
+        <module name="brand-demo" />
+        <module name="cookie-demo" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="brand-demo" target="1.8" />
+      <module name="cookie-demo" target="1.8" />
+      <module name="filter-demo" target="1.8" />
       <module name="HtmlCssJavascript" target="1.8" />
+      <module name="jsp-demo" target="1.8" />
+      <module name="jsp-demo (1)" target="1.8" />
       <module name="mybatis-demo" target="1.8" />
       <module name="oa" target="1.8" />
       <module name="testMaven" target="1.8" />

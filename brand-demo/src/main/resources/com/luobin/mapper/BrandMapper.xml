@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--名称就是接口的全限定名称-->
+<mapper namespace="com.luobin.mapper.BrandMapper">
+    <!--遇到的部分的字段查询不到的时候，一般可能是数据库的名字与 pojo 里面属性的名字不一致导致的-->
+    <!--这个时候需要使用 resultMap 进行名字的匹配即可-->
+    <resultMap id="brandResultMap" type="brand">
+        <result column="brand_name" property="brandName"></result>
+        <result column="company" property="companyName"></result>
+    </resultMap>
+
+</mapper>

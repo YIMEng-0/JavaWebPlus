@@ -14,9 +14,13 @@
       <module fileurl="file://$PROJECT_DIR$/Servlet08/Servlet08.iml" filepath="$PROJECT_DIR$/Servlet08/Servlet08.iml" />
       <module fileurl="file://$PROJECT_DIR$/ServletGISHomework/ServletGISHomework.iml" filepath="$PROJECT_DIR$/ServletGISHomework/ServletGISHomework.iml" />
       <module fileurl="file://$PROJECT_DIR$/ShangGuiGu01/ShangGuiGu01.iml" filepath="$PROJECT_DIR$/ShangGuiGu01/ShangGuiGu01.iml" />
-      <module fileurl="file://$PROJECT_DIR$/TomcatTest/TomcatTest.iml" filepath="$PROJECT_DIR$/TomcatTest/TomcatTest.iml" />
       <module fileurl="file://$PROJECT_DIR$/TomcatWebapp/TomcatWebapp.iml" filepath="$PROJECT_DIR$/TomcatWebapp/TomcatWebapp.iml" />
-      <module fileurl="file://$PROJECT_DIR$/mybatis-demo/mybatis-demo.iml" filepath="$PROJECT_DIR$/mybatis-demo/mybatis-demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/blog-test/blog-test.iml" filepath="$PROJECT_DIR$/blog-test/blog-test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/brand-demo/brand-demo.iml" filepath="$PROJECT_DIR$/brand-demo/brand-demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cookie-demo/cookie-demo.iml" filepath="$PROJECT_DIR$/cookie-demo/cookie-demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/filter-demo/filter-demo.iml" filepath="$PROJECT_DIR$/filter-demo/filter-demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jsp-demo/jsp-demo.iml" filepath="$PROJECT_DIR$/jsp-demo/jsp-demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/TomcatWebapp/jsp-demo/jsp-demo (1).iml" filepath="$PROJECT_DIR$/TomcatWebapp/jsp-demo/jsp-demo (1).iml" />
       <module fileurl="file://$PROJECT_DIR$/oa/oa.iml" filepath="$PROJECT_DIR$/oa/oa.iml" />
       <module fileurl="file://$PROJECT_DIR$/template/template.iml" filepath="$PROJECT_DIR$/template/template.iml" />
     </modules>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--
+    namespace 名称空间 这个名字是可以随意起的，但是不能空下来
+    id sql 语句的唯一标识 不能重复
+    resultType 就是返回结果的一个类型 将来的数据的包装类型
+-->
+
+<!--sql 的 namespace 属性变成了 Mapper 的全限定名称-->
+<mapper namespace="com.luobin.mapper.UserMapper">
+    <!--因为是查询语句，所以肯定是存在返回的对象的，在这里直接将返回的对象是什么类型定义好即可-->
+    <!--这里定义好的返回数据的类型，后面使用 sql 查询数据集都是要使用这个返回值数据类型的-->
+    <!--    statement-->
+    <!--    这个位置的 id = selectAll 与 mapper 里面的 UserMapper接口 的方法是需要一一映射起来的 -->
+    <select id="selectAll" resultType="com.luobin.pojo.User">
+        select *
+        from tb_user;
+    </select>
+
+    <select id="selectById" resultType="com.luobin.pojo.User">
+        select *
+        from tb_user
+        where id = #{10};
+    </select>
+
+</mapper>

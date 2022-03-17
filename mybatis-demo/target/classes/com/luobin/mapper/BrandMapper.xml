@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--
+    namespace 名称空间 这个名字是可以随意起的，但是不能空下来
+        id sql 语句的唯一标识 不能重复
+        resultType 就是返回结果的一个类型 将来的数据的包装类型
+-->
+
+<!--sql 的 namespace 属性变成了 Mapper 的全限定名称-->
+<mapper namespace="com.luobin.mapper.BrandMapper">
+
+
+    <!--    分析业务返回结果-->
+    <!--
+           数据库表表中字段的名称和实体类属性名称不一致的时候，是不可以自动封装数据的
+               *  起别名:对于不一样的列明起一个别名，使得别名与实体类的属性名字是一样的
+                    缺点：每次的查询都是需要起一个别名的
+
+               * 使用 sql 片段的形式执行 可以简化代码的执行
+                    不够灵活 因为有的查询是需要一个字段，有的查询是需要两个字段，有的是三个字段不够灵活
+
+               * resultMap
+    -->
+
+
+    <!--
+        映射 查询的结果集合与 pojo 类的映射
+        id 随意起的名字
+        type 查询的结果映射到的 POJO 类
+    -->
+    <resultMap id="brandResultMap" type="com.luobin.pojo.Brand">
+        <!--
+            id 完成主键字段的映射
+                column
+                properties
+
+            result 一般字段的映射
+        -->
+        <result column="brand_name" property="brandName"/>
+        <result column="company_name" property="companyName"/>
+    </resultMap>
+
+
+    <!--
+        id 在 Mapper 里面的方法名字
+        resultMap 解决数据库字段的名字与 POJO 类里面属性名字不一致做出来的名字统一，从而使用 resultMap
+    -->
+    <select id="selectAll" resultMap="brandResultMap">
+        select *
+        from tb_brand;
+    </select>
+
+    <select id="selectById" resultMap="brandResultMap">
+        select *
+        from tb_brand
+
+        where id = #{id};
+    </select>
+
+
+    <!--
+        Mybatis 参数占位符
+            1、#{}  会将其替换成为 ？防止 sql 注入
+            2、${}  会将其替换为 1  可能造成 sql 注入
+            3、参数传递的时候 使用 #{}
+               表名字或者列名字不是固定的时候，使用 ${}
+
+            4、关于参数类型，是可以省略掉的
+            5、关于特殊符号的处理
+                1、转义字符
+                2、CDATA 区
+    -->
+
+
+    <!--    条件查询-->
+    <!--    <select id="selectByCondition" resultMap="brandResultMap">-->
+    <!--        select *-->
+    <!--        from tb_brand-->
+    <!--        where status = #{status}                 &#45;&#45; 使用等值查询额方式-->
+    <!--            and company_name like #{companyName} &#45;&#45; 使用模糊查询的方式-->
+    <!--            and brand_name like #{brandName};-->
+    <!--    </select>-->
+
+    <!--
+        在下面使用动态查询的方式，根据用户的需要进行数据库的查询操作
+        上面的查询方式存在的问题是，只能输入所有的参数同时进行查询，如果少输入一个参数的话，是没有办法完成查询的，会报错；
+        下面的这种方法就是，用户输入几个条件，就使用几个条件进行查询，保证系统的正常运行；
+    -->
+    <select id="selectByCondition" resultMap="brandResultMap">
+        select *
+        from tb_brand
+        <where>
+            <if test="status != null">
+                and status = #{status} -- 使用等值查询额方式
+            </if>
+            <if test="companyName != null and companyName != '' ">
+                and company_name like #{companyName} -- 使用模糊查询的方式 此处的 and 按照语法是存在 if 里面的 也不能省略掉
+            </if>
+            <if test="brandName != null and brandName != '' ">
+                and brand_name like #{brandName};
+            </if>
+        </where>
+    </select>
+
+
+    <!--
+        单条件的动态查询
+            单条件 查询的时候只会使用一个条件
+            动态查询 sql 语句不是固定的，会根据传递的参数不同，改变 sql 语句形式，实现操作的正确进行，保证系统的稳定性
+    -->
+    <select id="selectByIdConditionSingle" resultMap="brandResultMap">
+        select *
+        from tb_brand
+        where
+        <choose>
+            <when test="status != null">
+                status = #{status}
+            </when>
+
+            <when test="companyName != null and companyName != ''">
+                company_name like #{companyName}
+            </when>
+
+            <when test="brandName != null and brandName != ''">
+                brand_name like #{brandName};
+            </when>
+
+            <otherwise>
+                1 = 1
+            </otherwise>
+        </choose>
+    </select>
+
+    <!--
+        useGeneratedKeys 为了在进行添加操作之后，可以访问到添加的数据在数据库中的主键
+        本次测试使用到的主键就是 id 所以在 keyProperty 进行了相关的配置
+    -->
+    <insert id="add" useGeneratedKeys="true" keyProperty="id">
+        insert into tb_brand (brand_name, company_name, ordered, description, status)
+        values (#{brandName}, #{companyName}, #{ordered}, #{description}, #{status})
+    </insert>
+
+
+    <!--    <update id="update">-->
+    <!--        update tb_brand-->
+    <!--        set-->
+    <!--            brand_name = #{brandName},-->
+    <!--            company_name = #{companyName},-->
+    <!--            ordered = #{ordered},-->
+    <!--            description = #{description},-->
+    <!--            status = #{status}-->
+    <!--        where id = #{id};-->
+    <!--    </update>-->
+
+    <!--
+        实现动态的 sql 数据的更新，上面的  sql 只是满足于所有的数据更新。实际中大所数情况下并不是所有的字段都是需要修改的，只是部分的需要修改而已
+        上面的更新数据存在的问题是，一次性只能更新所有的数据，不能单单的更新某一个数据，所以使用下面的 动态 SQL 的形式，实现了需要更新什么才更新什么，不会、
+        一股脑的全部更新
+
+        关于 if 里面的条件，只有输入的参数存在的时候，才会进行执行相关的 sql ，实现了动态的修改 sql 语句
+
+        下面的 sql 语句中如果 status 没有参数的传递进去，那么关于 status 的 sql 语句没有执行 description 就是最后一个 sql  片段
+        此时 sql 语句会出现错误，因为 逗号出现在了不该出现的地方，此时使用 Mybatis 的 <set> 标签可以解决这个问题
+    -->
+    <update id="update">
+        update tb_brand
+        <set>
+            <if test="brandName != null and brandName != ''">
+                brand_name = #{brandName},
+            </if>
+
+            <if test="companyName != null and companyName != ''">
+                company_name = #{companyName},
+            </if>
+            <if test="ordered != null">
+                ordered = #{ordered},
+            </if>
+            <if test="description != null and description != ''">
+                description = #{description},
+            </if>
+            <if test="status != null">
+                status = #{status}
+            </if>
+        </set>
+
+        where id = #{id};
+    </update>
+
+
+    <!--
+        实现删除功能
+            在测试用例中是需要提交事务的，否侧会发生回滚
+    -->
+    <delete id="deleteById">
+        delete
+        from tb_brand
+        where id = #{id};
+    </delete>
+
+    <!--
+        下面使用批量删除
+            系统获取到需要删除的 id 数值，然后执行操作删除即可
+            接收封装数组，遍历数组进行数据的删除
+            collection 将来传进来的需要删除的数据的 id 值，按照数组的方式传递进来
+            item 就是数组中的每一个 id
+            separator 放置 sql 语句解析的时候出错 因为 in 后面的每一个 id 都是需要使用 '，' 分开的
+    -->
+    <delete id="deleteByIds">
+        delete
+        from tb_brand
+        where id in
+            <foreach collection="array" item="id" separator="," open="(" close=");">
+                #{id}
+            </foreach>
+
+    </delete>
+
+</mapper>

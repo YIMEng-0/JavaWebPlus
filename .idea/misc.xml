@@ -7,6 +7,9 @@
     <option name="excludeFilter" value="" />
   </component>
   <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$/brand-demo" />
+    <file type="web" url="file://$PROJECT_DIR$/cookie-demo" />
+    <file type="web" url="file://$PROJECT_DIR$/filter-demo" />
     <file type="web" url="file://$PROJECT_DIR$/HtmlCssJavascript" />
     <file type="web" url="file://$PROJECT_DIR$/TomcatTest" />
     <file type="web" url="file://$PROJECT_DIR$/TomcatWebapp" />
@@ -14,17 +17,21 @@
   <component name="MavenProjectsManager">
     <option name="originalFiles">
       <list>
-        <option value="$PROJECT_DIR$/oa/pom.xml" />
         <option value="$PROJECT_DIR$/Servlet08/testMaven/pom.xml" />
-        <option value="$PROJECT_DIR$/mybatis-demo/pom.xml" />
         <option value="$PROJECT_DIR$/JavaWEB学习资料/HtmlCssJavascript/pom.xml" />
-        <option value="$PROJECT_DIR$/HtmlCssJavascript/pom.xml" />
         <option value="$PROJECT_DIR$/TomcatTest/pom.xml" />
-        <option value="$PROJECT_DIR$/TomcatWebapp/pom.xml" />
+        <option value="$PROJECT_DIR$/brand-demo/pom.xml" />
+        <option value="$PROJECT_DIR$/cookie-demo/pom.xml" />
+        <option value="$PROJECT_DIR$/filter-demo/pom.xml" />
       </list>
     </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/TomcatWebapp/jsp-demo/pom.xml" />
+      </set>
+    </option>
   </component>
-  <component name="ProjectRootManager">
+  <component name="ProjectRootManager" version="2" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
   </component>
   <component name="SuppressionsComponent">
