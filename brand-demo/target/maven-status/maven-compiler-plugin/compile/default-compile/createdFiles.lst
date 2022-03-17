@@ -1,0 +1,5 @@
+com/luobin/service/BrandService.class
+com/luobin/web/AddServlet.class
+com/luobin/web/SelectByIdServlet.class
+com/luobin/web/SelectAllServlet.class
+com/luobin/utils/SqlSessionFactoryUtil.class
